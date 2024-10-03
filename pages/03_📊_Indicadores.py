@@ -15,6 +15,8 @@ st.set_page_config(
 
 alt.themes.enable('opaque')
 
+
+
 df_pen = pd.read_csv('penetracion.csv')
 df_vmd = pd.read_csv('vmd.csv')
 df_tri = pd.read_csv('trimestres.csv')
@@ -60,11 +62,11 @@ with col0[1]:
 
 with col0[0]:
     mostrar_kpi_dona(kpi1, 3)
-    st.markdown('Incremento trimestral de Velocidad')
+    st.markdown('Velocidad Media de Bajada')
 
 with col0[2]:
     mostrar_kpi_dona(kpi3, 5)
-    st.markdown('Incremento trimestral de Penetracion')
+    st.markdown('Acceso Fibra óptica')
 
 
 
