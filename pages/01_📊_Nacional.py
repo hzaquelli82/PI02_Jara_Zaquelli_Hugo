@@ -76,19 +76,19 @@ def vmd_nacional():
     ax.grid(True, axis='y', linestyle='--', alpha=0.7)
 
     st.pyplot(fig)
+col0 = st.columns((0.05,0.8,0.05), gap='medium')
 
-
-st.markdown('### Evolución de accesos por cada 100 habitantes')
-
-with st.markdown('## Evolución de accesos por cada 100 habitantes'):
-    
+with col0[1]:
+    st.markdown("<h3 style='text-align: center;'>Evolución de accesos por cada 100 habitantes</h3>",
+                unsafe_allow_html=True)
     penetracion_nacional()
 
 col = st.columns((0.65,0.35), 
-                 gap='large')
+                 gap='medium')
 
 with col[0]:
-    st.markdown('#### Tecnologías de Acceso')
+    st.markdown("<h3 style='text-align: center;'>Evolución de accesos por cada 100 habitantes</h3>",
+                unsafe_allow_html=True)
     tecnologia_nacion()
 
 with col[1]:
