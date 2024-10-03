@@ -52,4 +52,8 @@ def mostrar_kpi_dona(kpi_actual, objetivo):
     st.plotly_chart(fig, use_container_width=True)
 
 
-mostrar_kpi_dona(0.5, 2)
+col0 = st.columns((2,3,2))
+
+with col0[2]:
+    mostrar_kpi_dona(kpi0, 2)
+    st.markdown('Incremento trimestral de Penetracion')
