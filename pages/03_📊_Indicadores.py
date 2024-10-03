@@ -59,11 +59,11 @@ with col0[1]:
     st.markdown('Incremento trimestral de Penetracion')
 
 with col0[0]:
-    mostrar_kpi_dona(kpi1, 2)
+    mostrar_kpi_dona(kpi1, 3)
     st.markdown('Incremento trimestral de Velocidad')
 
 with col0[2]:
-    mostrar_kpi_dona(kpi3, 2)
+    mostrar_kpi_dona(kpi3, 5)
     st.markdown('Incremento trimestral de Penetracion')
 
 
