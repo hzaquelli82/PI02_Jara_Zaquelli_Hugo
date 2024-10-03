@@ -1,4 +1,4 @@
-import streamlit as st
+deimport streamlit as st
 import pandas as pd
 import altair as alt
 import plotly.express as px
@@ -54,6 +54,17 @@ def mostrar_kpi_dona(kpi_actual, objetivo):
 
 col0 = st.columns((2,3,2))
 
-with col0[2]:
+with col0[1]:
     mostrar_kpi_dona(kpi0, 2)
     st.markdown('Incremento trimestral de Penetracion')
+
+with col0[0]:
+    mostrar_kpi_dona(kpi1, 2)
+    st.markdown('Incremento trimestral de Velocidad')
+
+with col0[2]:
+    mostrar_kpi_dona(kpi3, 2)
+    st.markdown('Incremento trimestral de Penetracion')
+
+
+
