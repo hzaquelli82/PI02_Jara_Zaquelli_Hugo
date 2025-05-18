@@ -34,6 +34,9 @@ Procesos de selección, filtrado y limpieza de los datos para asegurar su integr
 ### Visualización de Datos
 
 Se utilizaron gráficos de barras, histogramas, y gráficos de dispersión para analizar la distribución de los datos y obtener insights clave sobre el estado de las telecomunicaciones en Argentina.
+#### Insights
+
+
 ## Instrucciones de Ejecución
 Para ejecutar este notebook y realizar el análisis, sigue los siguientes pasos:
 
