@@ -34,7 +34,7 @@ Procesos de selección, filtrado y limpieza de los datos para asegurar su integr
 ### Visualización de Datos
 
 Se utilizaron gráficos de barras, histogramas, y gráficos de dispersión para analizar la distribución de los datos y obtener insights clave sobre el estado de las telecomunicaciones en Argentina.
-#### Insights
+### Insights y KPIs
 En la gráfica se observa que el análisis de acceso a internet por cada 100 hogares como por cada 100 habitantes, tienen la misma pendiente. Incluso son gráficos idénticos. Pero se nota además que tomando los hogares estaríamos en casi un 80% de hogares, sin embargo tomando en cuenta los habitantes estaríamos casi en un 25%. Pero se evidencia un crecimiento constante en accesos.
 
 En general hay diferencias entre provincias. Se nota una mayor penetración en las provincias del sur. Además hay una marcada diferencia entre penetracion por hogar y habitante, sobre todo en Capital Federal.
@@ -49,6 +49,39 @@ Se observa que se ha incrementado el acceso a través de wireless, algo que pued
 Observando los cuadros se puede ver que ADSL y Cablemodem son tegnologías concentradas en Buenos Aires, Capital Federal, Santa Fe y Córdoba. Incluso la fibra óptica.
 
 También se observa que las provincias del sur que tienen una alta penetración, no tienen velocidades medias muy altas ni acceso a tecnologías más rápidas.
+
+#### KPIs
+####  Aumentar 2% el acceso a internet
+Se pretende aumentar en un 2% el acceso al servicio de internet para el próximo trimestre, cada 100 hogares, por provincia. La fórmula es la siguiente:
+
+_KPI_ = ((Nuevoacceso - Accesoactual)/ Accesoactual)* 100
+
+Donde:
+
+- "Nuevo acceso" se refiere al número de hogares con acceso a Internet después del próximo trimestre.
+- "Acceso actual" se refiere al número de hogares con acceso a Internet en el trimestre actual.
+
+####  Aumentar 3% la velocidad media de bajada
+e pretende aumentar en un 3% la velocidad media de bajada, para el próximo trimestre, por provincia. La fórmula es la siguiente:
+
+_KPI_ = ((vmd_nuevo - vmd_actual)/ vmd_actual)* 100
+
+Donde:
+
+- vmd_nuevo se refiere a la velocidad media de bajada del próximo trimestre.
+- vmd_actual se refiere a la velocidad media de bajada en el trimestre actual.
+
+####  Aumentar un 5% los accesos a internet via Fibra Óptica
+Se pretende aumentar en un 5% los acceso de fibra óptica, para el próximo trimestre, por provincia. La fórmula es la siguiente:
+
+_KPI_ = ((fibra_nuevo - fibra_actual)/ fibra_actual)* 100
+
+Donde:
+
+- fibra_nuevo se refiere los accesos de fibra óptica del próximo trimestre.
+- fibra_actual se refiere a los accesos de fibra óptica en el trimestre actual.
+
+
 ## Instrucciones de Ejecución
 Para ejecutar este notebook y realizar el análisis, sigue los siguientes pasos:
 
