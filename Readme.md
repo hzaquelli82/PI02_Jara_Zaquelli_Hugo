@@ -35,7 +35,9 @@ Procesos de selección, filtrado y limpieza de los datos para asegurar su integr
 
 Se utilizaron gráficos de barras, histogramas, y gráficos de dispersión para analizar la distribución de los datos y obtener insights clave sobre el estado de las telecomunicaciones en Argentina.
 #### Insights
+En la gráfica se observa que el análisis de acceso a internet por cada 100 hogares como por cada 100 habitantes, tienen la misma pendiente. Incluso son gráficos idénticos.
 
+Pero se nota además que tomando los hogares estaríamos en casi un 80% de hogares, sin embargo tomando en cuenta los habitantes estaríamos casi en un 25%. Pero se evidencia un crecimiento constante en accesos.
 
 ## Instrucciones de Ejecución
 Para ejecutar este notebook y realizar el análisis, sigue los siguientes pasos:
