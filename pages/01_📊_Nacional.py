@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-alt.themes.enable('opaque')
+alt.theme.enable('opaque')
 
 sns.set_style("whitegrid")
 sns.set_palette("Set2")  

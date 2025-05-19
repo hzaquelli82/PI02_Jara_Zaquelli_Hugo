@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-alt.themes.enable('opaque')
+alt.theme.enable('opaque')
 
 st.markdown('## Análisis de Telecomunicaciones - Internet ')
 
