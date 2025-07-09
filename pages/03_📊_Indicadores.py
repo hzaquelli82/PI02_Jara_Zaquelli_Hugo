@@ -5,6 +5,7 @@ import plotly.express as px
 import json
 import folium
 from streamlit_folium import st_folium
+from streamlit_echarts import st_echarts
 import plotly.graph_objects as go
 
 
@@ -21,35 +22,106 @@ df_tri = pd.read_csv('trimestres.csv')
 df_tec = pd.read_csv('tecnologias.csv')
 
 def mostrar_kpi_dona(kpi_actual, objetivo):
-    # Determinar el color según el valor del KPI
-    if kpi_actual >= objetivo:
-        color = 'green'
-    elif kpi_actual >= 0.75 * objetivo:
-        color = 'orange'
-    else:
-        color = 'red'
+    medio_objetivo = objetivo/2
+    options = {
+        "series": [
+            {
+                "type": "gauge",
+                "startAngle": 180,
+                "endAngle": 0,
+                "radius": "100%",
+                "center": ["50%", "75%"],
+                "min": 0,
+                "max": 8,
+                "splitNumber": 4,
+                "itemStyle": {
+                    "color": "#60FD68" if kpi_actual >= objetivo else "#FF9800" if kpi_actual >= medio_objetivo else "#F44336"
+                },
+                "progress": {
+                    "show": True,
+                    "width": 30
+                },
+                "pointer": {
+                    "show": False
+                },
+                "axisLine": {
+                    "lineStyle": {
+                        "width": 30
+                    }
+                },
+                "axisTick": {
+                    "distance": -45,
+                    "splitNumber": 5,
+                    "lineStyle": {
+                        "width": 2,
+                        "color": "#999"
+                    }
+                },
+                "splitLine": {
+                    "distance": -52,
+                    "length": 14,
+                    "lineStyle": {
+                        "width": 3,
+                        "color": "#999"
+                    }
+                },
+                "axisLabel": {
+                    "distance": -20,
+                    "color": "#999",
+                    "fontSize": 12
+                },
+                "anchor": {
+                    "show": False
+                },
+                "title": {
+                    "show": False
+                },
+                "detail": {
+                    "valueAnimation": True,
+                    "fontSize": 30,
+                    "offsetCenter": [0, "-10%"],
+                    "formatter": "{value}",
+                    "color": "inherit"
+                },
+                "data": [
+                    {
+                        "value": kpi_actual,
+                    }
+                ]
+            }
+        ]
+    }
 
-    # Crear la figura de la dona usando Plotly
-    fig = go.Figure(go.Pie(
+    st_echarts(options=options, height="300px")
+    # # Determinar el color según el valor del KPI
+    # if kpi_actual >= objetivo:
+    #     color = 'green'
+    # elif kpi_actual >= 0.75 * objetivo:
+    #     color = 'orange'
+    # else:
+    #     color = 'red'
+
+    # # Crear la figura de la dona usando Plotly
+    # fig = go.Figure(go.Pie(
        
-        values=[min(kpi_actual, objetivo), max(0, objetivo - min(kpi_actual, objetivo))],
-        hole=0.6,  # Dona
-        marker_colors=[color, 'lightgray'],  # Color dinámico para KPI
-        textinfo='none',  # No mostrar etiquetas dentro de la dona
-    ))
+    #     values=[min(kpi_actual, objetivo), max(0, objetivo - min(kpi_actual, objetivo))],
+    #     hole=0.6,  # Dona
+    #     marker_colors=[color, 'lightgray'],  # Color dinámico para KPI
+    #     textinfo='none',  # No mostrar etiquetas dentro de la dona
+    # ))
 
-    # Añadir el texto del KPI al centro de la dona
-    fig.update_layout(
-        annotations=[dict(
-            text=f"{kpi_actual}",
-            x=0.5, y=0.5, font_size=20, showarrow=False
-        )],
-        showlegend=False,
-        margin=dict(t=20, b=20, l=20, r=20)
-    )
+    # # Añadir el texto del KPI al centro de la dona
+    # fig.update_layout(
+    #     annotations=[dict(
+    #         text=f"{kpi_actual}",
+    #         x=0.5, y=0.5, font_size=20, showarrow=False
+    #     )],
+    #     showlegend=False,
+    #     margin=dict(t=20, b=20, l=20, r=20)
+    # )
 
-    # Mostrar el gráfico en Streamlit
-    st.plotly_chart(fig, use_container_width=True)
+    # # Mostrar el gráfico en Streamlit
+    # st.plotly_chart(fig, use_container_width=True)
 
 st.sidebar.header("Selección de Datos para ver Indicadores")
 provincia = st.sidebar.selectbox("Selecciona una provincia", df_pen['Provincia'].unique())
@@ -75,12 +147,22 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.markdown("#### KPI 1")
     st.markdown("Acceso a Internet")
-    mostrar_kpi_dona(kpi1, 2)
+    if pd.isna(kpi1):
+        st.markdown("No hay valor")
+    else:
+        mostrar_kpi_dona(kpi1, 2)
+    
 with col2:
     st.markdown("#### KPI 2")
     st.markdown("Velocidad de Internet")
-    mostrar_kpi_dona(kpi2, 3)
+    if pd.isna(kpi2):
+        st.markdown("No hay valor")
+    else:
+        mostrar_kpi_dona(kpi2, 3)
 with col3:
     st.markdown("#### KPI 3")
-    st.markdown("Tecnologías de Internet")    
-    mostrar_kpi_dona(kpi3, 5)
+    st.markdown("Tecnologías de Internet") 
+    if pd.isna(kpi3):
+        st.markdown("No hay valor")
+    else:
+        mostrar_kpi_dona(kpi3, 5)
